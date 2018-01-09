@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pixel Art Maker!</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|VT323" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Lab: Pixel Art Maker</h1>
+    <div class="main-div">
+      <div class="side-div">
+        <h2>Choose Grid Size</h2>
+        <form id="sizePicker">
+          <div class="grid-input">
+            Grid Height:
+            <input type="number" id="input_height" name="height" min="1" value="1">
+            Grid Width:
+            <input type="number" id="input_width" name="width" min="1" value="1">
+          </div>
+          <input type="submit" value="Build">
+        </form>
+
+        <h2>Pick A Colour</h2>
+        <input type="color" id="colorPicker">
+
+        <h2>Instructions</h2>
+        <p>
+          <span class="step-color">&#9642;</span> Choose the size of your grid. <br> 30 x 60 suggested.
+        </p>
+        <p>
+          <span class="step-color">&#9642;</span> Pick any colour you wish.
+        </p>
+        <p>
+          <span class="step-color">&#9642;</span> Single click paints a single cell. Hold and drag to paint multiple cells.
+        </p>
+        <p>
+          <span class="step-color">&#9642;</span> Double click on a cell to delete colour.
+        </p>
+        <p>
+          <span class="step-color">&#9642;</span> To clean the whole canvas click on Build button.
+        </p>
+      </div>
+      <div class="grid-div">
+        <table id="pixel_canvas"></table>
+      </div>
+    </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="designs.js"></script>
+  </body>
+</html>

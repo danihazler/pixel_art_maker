@@ -1,0 +1,125 @@
+body {
+  color: #5593f9;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* --------------------- DIVS ----------------------------- */
+.main-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-div {
+  align-self: flex-start;
+  border-right: 2px dotted #fad95e;
+  max-width: 246px;
+  margin-right: 1%;
+  padding: 0 1% 0 2%;
+}
+
+.grid-div {
+  margin: 0 auto;
+}
+
+.grid-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --------------------- Headings----------------------------- */
+h1 {
+  color: #fad95e;
+  font-family: 'VT323', monospace;
+  font-size: 70px;
+  font-weight: 200;
+  text-shadow: 2px 3px 0 rgba(150, 214, 190, 0.67);
+  border-bottom: 3px solid #f67d79;
+  margin: 0.2em;
+}
+
+h2 {
+  color: #f67d79;
+  font-family: 'Open Sans', sans-serif;
+  margin: 1em 0 0.25em;
+}
+
+h2:first-of-type {
+  margin-top: 0.5em;
+}
+
+/* ----------------- Table (cells for drawing)--------------------------- */
+table,
+tr,
+td {
+  border: 1px solid rgba(0, 0, 0, 0.19);
+}
+
+table {
+  background-color: #fff;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+tr {
+  height: 20px;
+}
+
+td {
+  width: 20px;
+}
+
+/* ------------- Inputs (width, height, color, submit button) ------------- */
+input[type=number] {
+  border: 1px solid #fad95e;
+  border-radius: 10px;
+  text-align: center;
+  margin: 3% 0 4%;
+  width: 6em;
+}
+
+input#colorPicker,
+input[type=submit] {
+  cursor: pointer;
+}
+
+input#colorPicker {
+  border: 2px solid #fad95e;
+  /* width and height for a better visibility on Safari */
+  width: 44px;
+  height: 23px;
+}
+
+input[type=submit] {
+  color: #fff;
+  background-color: #fad95e;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 1px 1px 4px #96d6be;
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  margin-top: 4%;
+  width: 5rem;
+  height: 2rem;
+}
+
+input {
+  outline: none;
+  transition: all 0.30s ease-in-out;
+}
+
+input:focus {
+  box-shadow: 0 0 7px #96d6be;
+}
+/* --------------------- Instructions ----------------------------- */
+p {
+  font-size: 0.8rem;
+  min-width: 246px;
+}
+
+.step-color {
+  color: #f67d79;
+}
