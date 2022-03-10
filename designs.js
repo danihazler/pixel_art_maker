@@ -1,67 +1,61 @@
+const inputHeight = document.getElementById("input_height");
+const inputWidth = document.getElementById("input_width");
+const colorPicker = document.getElementById("colorPicker");
+const table = document.getElementById("pixel_canvas");
+const form = document.getElementById("sizePicker");
+
 //Function to build a grid.
 function makeGrid() {
-
   //Values for grid height and grid width
-  let height = $('#input_height').val();
-  let width = $('#input_width').val();
+  let height = +inputHeight.value;
+  let width = +inputWidth.value;
+
   //Limited values for a less distorted grid
   if (height <= 80 && width <= 80) {
-
     //Cleans the canvas for a new grid
-    $('table').children().remove();
+    table.innerHTML = "";
 
     //Adding children <tr> and <td> to the table
-    for(let i = 0; i < height; i++) {
-      let row = $('<tr></tr>');
+    for (let i = 0; i < height; i++) {
+      let row = document.createElement("tr");
 
-      for(let j = 0; j < width; j++) {
-        row.append($('<td></td>'));
+      for (let j = 0; j < width; j++) {
+        let tableData = document.createElement("td");
+        row.appendChild(tableData);
       }
 
-      $('table').append(row);
+      table.appendChild(row);
     }
   } else {
-    alert("Maximum value is 80.")
+    alert("Maximum value is 80.");
   }
 }
 
 //---------- Submit event of the form itself
-const sizePicker = $("#sizePicker");
-sizePicker.on("submit", function(e) {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
   makeGrid();
 });
 
-//Color Picker input updates its value itself, no need for an event listener
-const colorPicker = $("#colorPicker");
-
-//Add background-color to the selected table cell
-$("table").on("mousemove", "td", function() {
+//Add color to the selected table cell
+table.addEventListener("mousemove", () => {
   //Doesn't start drawing instantly
   let isDrawing = false;
 
-  $("table").on("mousedown","td", function(){
+  table.addEventListener("mousedown", (e) => {
     isDrawing = true;
-    $(this).css("background-color", colorPicker.val());
+    e.target.style.background = colorPicker.value;
   });
 
-  $("table").on("mousemove", "td", function(){
-    if (isDrawing){
-      $(this).css("background-color", colorPicker.val());
-    }
+  table.addEventListener("mousemove", (e) => {
+    if (isDrawing) e.target.style.background = colorPicker.value;
   });
 
-  $("table").mouseup(function(){
+  table.addEventListener("mouseup", () => {
     isDrawing = false;
   });
 
-  //---------- Add colour to a single cell
-  $("table").on("click", "td", function() {
-    $(this).css("background-color", colorPicker.val());
+  table.addEventListener("dblclick", (e) => {
+    e.target.style.background = "none";
   });
-
-  //---------- Removes colour from the cell
-  $("td").on("dblclick", function() {
-    $(this).css("background", "none");
-  })
 });
